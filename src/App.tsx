@@ -4,11 +4,17 @@ import PPMLogo from "./assets/images/PPMLogo.png";
 import BluehatLogo from "./assets/images/BluehatLogo.png";
 import HuaweiLogo from "./assets/images/HuaweiLogo.png";
 import FormosLogo from "./assets/images/FormosLogo.png";
-import TestSvgPurple from './assets/images/TestSvgPurple.svg';
-import TestSvgGreen from './assets/images/TestSvgGreen.svg';
-import TestSvgOrange from './assets/images/TestSvgOrange.svg';
+// import WavesPurple from './assets/images/WavesPurple.svg';
+// import WavesGreen from './assets/images/WavesGreen.svg';
+// import WavesOrange from './assets/images/WavesOrange.svg';
 import GymnastPulling from './assets/images/GymnastPulling.svg';
 import GymnastHanging from './assets/images/GymnastHanging.svg';
+import WavesGreen from './assets/images/WavesGreen.svg';
+import WavesPurple from './assets/images/WavesPurple.svg';
+import WavesOrange from './assets/images/WavesOrange.svg';
+import StarsPurple from './assets/images/StarsPurple.svg';
+import StarsGreen from './assets/images/StarsGreen.svg';
+import StarsOrange from './assets/images/StarsOrange.svg';
 import GappnaderoAppDetail from './assets/images/GappnaderoAppDetail.png';
 import GappnaderoAppCreate from './assets/images/GappnaderoAppCreate.png';
 import GappnaderoAppList from './assets/images/GappnaderoAppList.png';
@@ -33,10 +39,19 @@ const App = () => {
       <Parallax ref={parallax} pages={3}>
         <ParallaxLayer offset={0} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
-            src={TestSvgPurple}
+            src={WavesPurple}
             alt="Remix"
-            className="w-full h-full "
+            className="w-full h-screen"
           />
+        </ParallaxLayer>
+        <ParallaxLayer offset={0}         speed={-0.4}
+          factor={3}>
+             <img
+            src={StarsPurple}
+            alt="Remix"
+            className="w-full"
+          />
+         
         </ParallaxLayer>
         <ParallaxLayer offset={0.55} speed={0.6} style={{ pointerEvents: 'none' }}>
           <div className="relative">
@@ -59,6 +74,16 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
+        <ParallaxLayer offset={0.5}         speed={-0.4}
+          factor={3}>
+             <img
+            src={StarsPurple}
+            alt="Remix"
+            className="w-full"
+          />
+         
+        </ParallaxLayer>
+
 
         <ParallaxLayer offset={0} speed={-1.5} style={{ pointerEvents: 'none' }}>
           <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
@@ -74,16 +99,25 @@ const App = () => {
             </h1>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0.6} speed={-0.2} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={0.9} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
-            src={TestSvgGreen}
+            src={WavesGreen}
             alt="Remix"
-            className="w-full h-full "
+            className="w-full h-screen"
           />
 
         </ParallaxLayer>
+        <ParallaxLayer offset={0.7}         speed={-0.4}
+          factor={3}>
+             <img
+            src={StarsGreen}
+            alt="Remix"
+            className="w-full"
+          />
+         
+        </ParallaxLayer>
 
-        <ParallaxLayer offset={1.3} speed={0.7} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1.3} speed={1.3} style={{ pointerEvents: 'none' }}>
           <div className="grid grid-cols-3 gap-4  bg-gray-100	p-4 m-4 rounded-xl">
             <h4 className="text-base font-extrabold">
               <span className="block uppercase text-purple-500 drop-shadow-md">
@@ -102,7 +136,7 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.4} speed={0.7} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1.4} speed={1.8} style={{ pointerEvents: 'none' }}>
           <div className="grid grid-cols-3 gap-4  bg-gray-100	p-4 m-4 rounded-xl">
             <h4 className="text-base font-extrabold">
               <span className="block uppercase text-purple-500 drop-shadow-md">
@@ -121,7 +155,7 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.5} speed={0.7} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1.5} speed={0.9} style={{ pointerEvents: 'none' }}>
           <div className="grid grid-cols-3 gap-4  bg-gray-100	p-4 m-4 rounded-xl">
             <h4 className="text-base font-extrabold">
               <span className="block uppercase text-purple-500 drop-shadow-md">
@@ -140,7 +174,16 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.6} speed={0.7} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1.5}         speed={-0.4}
+          factor={3}>
+             <img
+            src={StarsGreen}
+            alt="Remix"
+            className="w-full"
+          />
+         
+        </ParallaxLayer>
+        <ParallaxLayer offset={1.6} speed={1.2} style={{ pointerEvents: 'none' }}>
           <div className="grid grid-cols-3 gap-4  bg-gray-100	p-4 m-4 rounded-xl">
             <h4 className="text-base font-extrabold">
               <span className="block uppercase text-purple-500 drop-shadow-md">
@@ -168,16 +211,34 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={2} speed={-0.2} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1.8} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
-            src={TestSvgOrange}
+            src={WavesOrange}
             alt="Remix"
-            className="w-full h-full"
+            className="w-full h-screen"
           />
 
         </ParallaxLayer>
+
+        <ParallaxLayer offset={1.8}         speed={-0.4}
+          factor={3}>
+             <img
+            src={StarsOrange}
+            alt="Remix"
+            className="w-full"
+          />
+         
+        </ParallaxLayer>
         <ParallaxLayer offset={2} speed={-0.2} >
           <Parallax ref={parallax2} pages={2} horizontal>
+          <ParallaxLayer offset={0}         speed={-0.4}
+          factor={3}>
+             <img
+            src={StarsOrange}
+            alt="Remix"
+            className="w-1/2"
+          />
+             </ParallaxLayer>
             <ParallaxLayer offset={0.6} speed={-0.4} style={{ pointerEvents: 'none' }} >
               <div> <img
                 src={GappnaderoAppLogin}
@@ -192,6 +253,15 @@ const App = () => {
                 className="w-1/2"
               /></div>
             </ParallaxLayer>
+            <ParallaxLayer offset={0.6}         speed={-0.4}
+          factor={3}>
+             <img
+            src={StarsOrange}
+            alt="Remix"
+            className="w-1/2"
+          />
+         
+        </ParallaxLayer>
             <ParallaxLayer offset={0.6} speed={2.4} style={{ pointerEvents: 'none' }} >
               <div> <img
                 src={GappnaderoAppDetail}
@@ -206,6 +276,7 @@ const App = () => {
                 className="w-1/2"
               /></div>
             </ParallaxLayer>
+  
           </Parallax>
         </ParallaxLayer>
         <ParallaxLayer offset={2.8} speed={-0.2} >
@@ -223,6 +294,15 @@ const App = () => {
               </span>
             </h4>
           </div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={2.8}         speed={-0.4}
+          factor={3}>
+             <img
+            src={StarsOrange}
+            alt="Remix"
+            className="w-full"
+          />
+         
         </ParallaxLayer>
       </Parallax>
     </div>
