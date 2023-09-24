@@ -1,12 +1,12 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import SoftwareExplorerLogo from "./assets/images/SoftwareExplorerLogo.png";
 import PPMLogo from "./assets/images/PPMLogo.png";
 import BluehatLogo from "./assets/images/BluehatLogo.png";
 import HuaweiLogo from "./assets/images/HuaweiLogo.png";
 import FormosLogo from "./assets/images/FormosLogo.png";
-import GalaxyPurple from './assets/images/GalaxyPurple.jpg';
-import GalaxyGreen from './assets/images/GalaxyGreen.jpg';
-import GalaxyOrange from './assets/images/GalaxyOrange.jpg';
+import TestSvgPurple from './assets/images/TestSvgPurple.svg';
+import TestSvgGreen from './assets/images/TestSvgGreen.svg';
+import TestSvgOrange from './assets/images/TestSvgOrange.svg';
 import GymnastPulling from './assets/images/GymnastPulling.svg';
 import GymnastHanging from './assets/images/GymnastHanging.svg';
 import GappnaderoAppDetail from './assets/images/GappnaderoAppDetail.png';
@@ -19,14 +19,23 @@ const App = () => {
   const parallax = useRef<IParallax>(null!)
   const parallax2 = useRef<IParallax>(null!)
 
+
+  const onScroll = () =>
+    console.log(parallax.current.current / parallax.current.space)
+
+  useEffect(() => {
+    if (!parallax.current || !parallax.current.container) return
+    parallax.current.container.current = onScroll()
+  })
+
   return (
     <div style={{ width: '100%', height: '100%', background: '#253237' }}>
       <Parallax ref={parallax} pages={3}>
         <ParallaxLayer offset={0} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
-            src={GalaxyPurple}
+            src={TestSvgPurple}
             alt="Remix"
-            className="w-full h-full"
+            className="w-full h-full "
           />
         </ParallaxLayer>
         <ParallaxLayer offset={0.55} speed={0.6} style={{ pointerEvents: 'none' }}>
@@ -65,11 +74,11 @@ const App = () => {
             </h1>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={-0.2} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={0.6} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
-            src={GalaxyGreen}
+            src={TestSvgGreen}
             alt="Remix"
-            className="w-full h-full"
+            className="w-full h-full "
           />
 
         </ParallaxLayer>
@@ -161,7 +170,7 @@ const App = () => {
         </ParallaxLayer>
         <ParallaxLayer offset={2} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
-            src={GalaxyOrange}
+            src={TestSvgOrange}
             alt="Remix"
             className="w-full h-full"
           />
