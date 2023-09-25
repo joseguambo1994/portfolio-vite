@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SoftwareExplorerLogo from "./assets/images/SoftwareExplorerLogo.png";
 import PPMLogo from "./assets/images/PPMLogo.png";
 import BluehatLogo from "./assets/images/BluehatLogo.png";
@@ -20,24 +20,67 @@ import GappnaderoAppDetail from './assets/images/GappnaderoAppDetail.png';
 import GappnaderoAppCreate from './assets/images/GappnaderoAppCreate.png';
 import GappnaderoAppList from './assets/images/GappnaderoAppList.png';
 import GappnaderoAppLogin from './assets/images/GappnaderoAppLogin.png';
-import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
+import HamsterAnimation from "./assets/animations/Hamster.json";
 
+import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
+import Lottie from 'lottie-react';
+import { useSpring, animated } from '@react-spring/web'
+
+
+type HamsterPosition = 1|2|3;
 const App = () => {
-  const parallax = useRef<IParallax>(null!)
+  const [position, setPosition] = useState(8)
   const parallax2 = useRef<IParallax>(null!)
 
+  const parallax = useRef<IParallax>(null!);
 
-  const onScroll = () =>
-    console.log(parallax.current.current / parallax.current.space)
+  const [springs, api] = useSpring(() => ({
+    from: { x: 0 },
+  }))
 
-  useEffect(() => {
-    if (!parallax.current || !parallax.current.container) return
-    parallax.current.container.current = onScroll()
-  })
+
+
+  const updateHamsterPosition = (scrollPercentage: number):HamsterPosition => {
+    if (scrollPercentage < 0.33) { return 1 } else
+    if (scrollPercentage < 0.65) { return 2 } else
+    if (scrollPercentage < 1) { return 3 } else 
+    return 1
+  }
+
+  
+
+  const scrollListener = () => {
+    const handleWheelEvent = () => {
+      const {container, current } = parallax.current;
+      const scrollpercent = current / (container.current.scrollHeight - window.innerHeight)
+      const scrollpercent2 = current / (container.current.scrollHeight)
+      setPosition(updateHamsterPosition(scrollpercent2))
+      //console.log(scrollpercent, {container}, {current}, {offset} );
+      console.log("parallax.current",{scrollpercent}, {scrollpercent2})
+    };
+
+    window.addEventListener('wheel', handleWheelEvent);
+    return () => {
+      window.removeEventListener('wheel', handleWheelEvent);
+    };
+  };
+  useEffect(scrollListener, []);
+
+  useEffect(()=>{
+    api.start({
+      to: {
+        x: position *30,
+      },
+    })
+  } , [position]);
+
 
   return (
     <div style={{ width: '100%', height: '100%', background: '#253237' }}>
       <Parallax ref={parallax} pages={3}>
+      <ParallaxLayer sticky={{ start: 0, end:4 }} style={{ pointerEvents: 'none' }}>
+      <animated.div style={{...springs}}  className='w-24'><Lottie animationData={HamsterAnimation} loop={true} /></animated.div>
+        </ParallaxLayer>
         <ParallaxLayer offset={0} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
             src={WavesPurple}
@@ -54,7 +97,7 @@ const App = () => {
           />
          
         </ParallaxLayer>
-        <ParallaxLayer offset={0.55} speed={0.6} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={0.4} speed={0.6} style={{ pointerEvents: 'none' }}>
           <div className="relative">
 
             <img
@@ -101,7 +144,7 @@ const App = () => {
             </h1>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0.9} speed={-0.2} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
             src={WavesGreen}
             alt="Remix"
@@ -109,7 +152,7 @@ const App = () => {
           />
 
         </ParallaxLayer>
-        <ParallaxLayer offset={0.9}         speed={-0.2}
+        <ParallaxLayer offset={1.1}         speed={-0.6}
           factor={3}>
              <img
             src={StarsGreen}
@@ -119,7 +162,7 @@ const App = () => {
          
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1.3} speed={1.3} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1.4} speed={1} style={{ pointerEvents: 'none' }}>
           <div className="grid grid-cols-3 gap-4  bg-gray-100	p-4 m-4 rounded-xl">
             <h4 className="text-base font-extrabold">
               <span className="block uppercase text-purple-500 drop-shadow-md">
@@ -138,7 +181,7 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.4} speed={1.8} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1.5} speed={1} style={{ pointerEvents: 'none' }}>
           <div className="grid grid-cols-3 gap-4  bg-gray-100	p-4 m-4 rounded-xl">
             <h4 className="text-base font-extrabold">
               <span className="block uppercase text-purple-500 drop-shadow-md">
@@ -157,7 +200,7 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.5} speed={0.9} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={1.6} speed={1} style={{ pointerEvents: 'none' }}>
           <div className="grid grid-cols-3 gap-4  bg-gray-100	p-4 m-4 rounded-xl">
             <h4 className="text-base font-extrabold">
               <span className="block uppercase text-purple-500 drop-shadow-md">
@@ -176,7 +219,7 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.5}         speed={0.3}
+        <ParallaxLayer offset={1.3}         speed={0.1}
           factor={3}>
              <img
             src={StarsGreen}
@@ -213,7 +256,7 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.8} speed={-0.2} style={{ pointerEvents: 'none' }}>
+        <ParallaxLayer offset={2} speed={-0.2} style={{ pointerEvents: 'none' }}>
           <img
             src={WavesOrange}
             alt="Remix"
