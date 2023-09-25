@@ -7,8 +7,9 @@ import FormosLogo from "./assets/images/FormosLogo.png";
 // import WavesPurple from './assets/images/WavesPurple.svg';
 // import WavesGreen from './assets/images/WavesGreen.svg';
 // import WavesOrange from './assets/images/WavesOrange.svg';
-import GymnastPulling from './assets/images/GymnastPulling.svg';
-import GymnastHanging from './assets/images/GymnastHanging.svg';
+import GymnastPullingGreen from './assets/images/GymnastPullingGreen.svg';
+import GymnastPullingPurple from './assets/images/GymnastPullingPurple.svg';
+import GymnastHangingOrange from './assets/images/GymnastHangingOrange.svg';
 import WavesGreen from './assets/images/WavesGreen.svg';
 import WavesPurple from './assets/images/WavesPurple.svg';
 import WavesOrange from './assets/images/WavesOrange.svg';
@@ -44,7 +45,7 @@ const App = () => {
             className="w-full h-screen"
           />
         </ParallaxLayer>
-        <ParallaxLayer offset={0}         speed={-0.4}
+        <ParallaxLayer offset={0}         speed={-0.6}
           factor={3}>
              <img
             src={StarsPurple}
@@ -57,24 +58,25 @@ const App = () => {
           <div className="relative">
 
             <img
-              src={GymnastHanging}
+              src={GymnastPullingGreen}
               alt="Remix"
-              className='w-3/4 absolute -left-32'
+              className='w-3/4 absolute -left-32 mt-4'
+            />
+             <img
+              src={GymnastPullingPurple}
+              alt="Remix"
+              className='w-3/4 absolute -right-28  mt-8'
             />
             <img
-              src={GymnastPulling}
+              src={GymnastHangingOrange}
               alt="Remix"
               className='w-3/4 absolute left-16'
             />
 
-            <img
-              src={GymnastHanging}
-              alt="Remix"
-              className='w-3/4 absolute -right-32'
-            />
+           
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0.5}         speed={-0.4}
+        <ParallaxLayer offset={0.5}         speed={0}
           factor={3}>
              <img
             src={StarsPurple}
@@ -107,7 +109,7 @@ const App = () => {
           />
 
         </ParallaxLayer>
-        <ParallaxLayer offset={0.7}         speed={-0.4}
+        <ParallaxLayer offset={0.9}         speed={-0.2}
           factor={3}>
              <img
             src={StarsGreen}
@@ -174,7 +176,7 @@ const App = () => {
             />
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.5}         speed={-0.4}
+        <ParallaxLayer offset={1.5}         speed={0.3}
           factor={3}>
              <img
             src={StarsGreen}
